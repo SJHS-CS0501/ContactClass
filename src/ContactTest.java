@@ -48,6 +48,12 @@ public class ContactTest {
         public String getMiddleName() {
             return mName;
         }
+        public void setAddress( String a ) {
+        	street = a;
+        }
+        public String getAddress() {
+        	return street;
+        }
         /*
          * Name (first, last, middle)
          * Prefix
