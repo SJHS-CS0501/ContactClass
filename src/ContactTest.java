@@ -340,7 +340,7 @@ public class ContactTest {
          */
         public boolean nameIsValid(String n) {
         	
-        	if (n.matches("^[A-Z a-z]+$")){
+        	if (n.matches("^[- 'A-Za-z]+$")){
         		return true;
         	} else {
         		return false;
