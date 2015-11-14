@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  *
  * @author woytek
- * @ Isabelle Schroeder
+ * @author Isabelle Schroeder
  */
 public class ContactTest {
 
@@ -12,10 +12,9 @@ public class ContactTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Contact testContact = new Contact();
-        String input = null;
-        Double num = null;
-        Scanner keyboard = new Scanner(System.in);
+        Contact testContact = new Contact(); // doing contact information
+        String input = null; // holds seriously everything
+        Scanner keyboard = new Scanner(System.in); // for inputting
        
         System.out.print( "Enter the last name: " );
         input = keyboard.nextLine();
@@ -35,32 +34,33 @@ public class ContactTest {
         
         System.out.print( "Enter phone number: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setPhone( input );
         
         System.out.print( "Enter email: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setEmail( input );
         
-        System.out.print( "Enter street: " );
+        System.out.print( "Enter street address: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setStreet( input );
         
         System.out.print( "Enter city: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setCity( input );
         
         System.out.print( "Enter state: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setState( input );
         
         System.out.print( "Enter ZIP code: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setZip( input );
         
         System.out.print( "Enter occupation: " );
         input = keyboard.nextLine();
-        testContact.setFirstName( input );
+        testContact.setOccupation( input );
         
+        // printing everything out
         System.out.println( "Last name: " + testContact.getLastName() );
         System.out.println( "First name: " + testContact.getFirstName() );
         System.out.println( "Middle name: " + testContact.getMiddleName() );
@@ -72,16 +72,21 @@ public class ContactTest {
         System.out.println( "State: " + testContact.getState() ); 
         System.out.println( "ZIP: " + testContact.getZip() );
         System.out.println( "Occupation: " + testContact.getOccupation() );
-        
+       
     }
     
     public static class Contact {
         Contact() {
         }
+        /**
+         * 
+         * @param n the args for methods
+         */
         public void setLastName( String n ) {
          
         	
-        	if( !n.matches("^[A-Za-z]+$") ) {
+        // regulates the acceptable characters in last name
+        	if( !n.matches("^[A-Za-z - ']+$") ) {
                 System.out.println( "Invalid characters in last name" );
             } else {
                 lName = n;
@@ -93,7 +98,12 @@ public class ContactTest {
         
         
         public void setFirstName( String n ) {
-            fName = n;
+        // included - and ' here and in middle name because some people have really weird names	
+        	if( !n.matches("^[A-Za-z - ']+$") ) {
+                System.out.println( "Invalid characters in first name" );
+            } else {
+                fName = n;
+            }
         }
         public String getFirstName() {
             return fName;
@@ -101,7 +111,11 @@ public class ContactTest {
         
         
         public void setMiddleName( String n ) {
-            mName = n;
+        	if( !n.matches("^[A-Za-z - ']+$") ) {
+                System.out.println( "Invalid characters in middle name" );
+            } else {
+                mName = n;
+            }
         }
         public String getMiddleName() {
             return mName;
@@ -109,7 +123,12 @@ public class ContactTest {
         
         
         public void setPrefix( String n ){
-        	prefix = n;
+        	//prefixes shouldn't have more than 4 characters as far as I'm concerned
+        	if( !n.matches("^[A-Za-z .]{1,4}$") ) {
+                System.out.println( "Invalid characters in prefix" );
+            } else {
+                prefix = n;
+            }
         }
         public String getPrefix(){
         	return prefix;
@@ -117,7 +136,15 @@ public class ContactTest {
         
         
         public void setPhone( String n ){
-        	phone = n;
+        	/** finally got this to work so I decided not to anger the beast
+        	* by splitting the number up in 3 parts, so now it just works for 
+        	* hyphens or no hyphens and you're on your own with where those go
+        	*/
+        	if( !n.matches("^[0-9 -]{10,13}$") ) {
+                System.out.println( "Invalid characters in phone number" );
+            } else {
+            	phone = n;
+            }
         }
         public String getPhone(){
         	return phone;
@@ -125,7 +152,12 @@ public class ContactTest {
         
         
         public void setEmail( String n ){
-        email = n;
+        	// not sure what other symbols one might have in their email address
+        	if( !n.matches("^[A-Za-z_@0-9.]+$") ) {
+                System.out.println( "Invalid characters in email" );
+            } else {
+                email = n;
+            }       
         }
         public String getEmail(){
         	return email;
@@ -133,7 +165,12 @@ public class ContactTest {
         
         
         public void setStreet( String n ){
-        	street = n;
+        	// user can put in house number with street name
+        	if( !n.matches("^[A-Za-z 0-9 .]+$") ) {
+                System.out.println( "Invalid characters in street address" );
+            } else {
+                street = n;
+            }
         }
         public String getStreet(){
         	return street;
@@ -141,7 +178,11 @@ public class ContactTest {
         
         
         public void setCity( String n ){
-        	city = n;
+        	if( !n.matches("^[A-Za-z]+$") ) {
+                System.out.println( "Invalid characters in city" );
+            } else {
+                city = n;
+            }
         }
         public String getCity(){
         	return city;
@@ -149,7 +190,12 @@ public class ContactTest {
         
         
         public void setState( String n ){
-        	state = n;
+        	// works for both abbreviations and full names!
+        	if( !n.matches("^[A-Za-z .]+$") ) {
+                System.out.println( "Invalid characters in state" );
+            } else {
+                state = n;
+            }
         }
         public String getState(){
         	return state;
@@ -157,7 +203,12 @@ public class ContactTest {
         
         
         public void setZip( String n ){
-        	zip = n;
+        	// Foreigners..
+        	if( !n.matches("^[A-Za-z - 0-9]+$") ) {
+                System.out.println( "Invalid characters in zip code" );
+            } else {
+                zip = n;
+            }
         }
         public String getZip(){
         	return zip;
@@ -165,7 +216,12 @@ public class ContactTest {
         
         
         public void setOccupation( String n ){
-        	occupation = n;
+        	// included / for multiple jobs/descriptions
+        	if( !n.matches("^[A-Za-z / ]+$") ) {
+                System.out.println( "Invalid characters in occupation" );
+            } else {
+                occupation = n;
+            }
         }
         public String getOccupation(){
         	return occupation;
