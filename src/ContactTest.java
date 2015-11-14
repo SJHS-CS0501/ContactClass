@@ -1,9 +1,10 @@
 
+
 import java.util.Scanner;
 
 /**
  *
- * @author woytek
+ * @author ryley
  */
 public class ContactTest {
 
@@ -57,7 +58,7 @@ public class ContactTest {
         input = keyboard.nextLine();
         testContact.setCity(input);
         
-        System.out.print( "Enter state initial: " );
+        System.out.print( "Enter state name: " );
         input = keyboard.nextLine();
         testContact.setStateAB(input);
         
@@ -81,7 +82,7 @@ public class ContactTest {
     }
     
     /**
-     * 
+     * contains methods for contact information
      * @author Ryley
      *
      */
@@ -90,7 +91,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * sets user last name
          * @param n
          */
         public void setLastName( String n ) {
@@ -101,7 +102,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-        		System.out.println( "Invalid characters in last name" );
+        		System.out.println( "Invalid characters" );
                 System.out.println( "Correctly:");
                 n = key.nextLine();
                 lName = n;
@@ -112,12 +113,17 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user last name
          * @return 1Name
          */
         public String getLastName() {
             return lName;
         }
+        
+        /**
+         * set user first name
+         * @param n
+         */
         public void setFirstName( String n ) {
         	Scanner key = new Scanner(System.in);
         	
@@ -125,7 +131,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-        		System.out.println( "Invalid characters in last name" );
+        		System.out.println( "Invalid characters" );
                 System.out.println( "Correctly:");
                 n = key.nextLine();
                 fName = n;
@@ -136,19 +142,24 @@ public class ContactTest {
         }
        
         /**
-         * 
+         * get user first name 
          * @return fName
          */
         public String getFirstName() {
             return fName;
         }
+        
+        /**
+         * set user middle name
+         * @param n
+         */
         public void setMiddleName( String n ) {
         	Scanner key = new Scanner(System.in);
         	nameIsValid(n);
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-        		System.out.println( "Invalid characters in last name" );
+        		System.out.println( "Invalid characters" );
                 System.out.println( "Correctly:");
                 n = key.nextLine();
                 mName = n;
@@ -159,7 +170,7 @@ public class ContactTest {
         }
        
         /**
-         * 
+         * get user middle name
          * @return mName
          */
         public String getMiddleName() {
@@ -167,7 +178,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user prefix
          * @param n
          */
         public void setPrefix(String n){
@@ -177,7 +188,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-                	System.out.println( "Invalid characters in last name" );
+                	System.out.println( "Invalid characters" );
                 	System.out.println( "Correctly:");
                 	n = key.nextLine();
                 	prefix = n;
@@ -188,7 +199,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user prefix
          * @return prefix
          */
         public String getPrefix(){
@@ -196,7 +207,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user occupation
          * @param n
          */
         public void setOccupation(String n){
@@ -206,7 +217,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-                	System.out.println( "Invalid characters in last name" );
+                	System.out.println( "Invalid characters" );
                 	System.out.println( "Correctly:");
                 	n = key.nextLine();
                 	occupation = n;
@@ -217,7 +228,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user occupation
          * @return occupation
          */
         public String getOccupation(){
@@ -225,7 +236,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user city
          * @param n
          */
         public void setCity(String n){
@@ -235,7 +246,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-        		System.out.println( "Invalid characters in last name" );
+        		System.out.println( "Invalid characters" );
                 System.out.println( "Correctly:");
                 n = key.nextLine();
                 city = n;
@@ -246,7 +257,7 @@ public class ContactTest {
 
         }
         /**
-         * 
+         * get user city
          * @return city
          */
         public String getCity(){
@@ -254,7 +265,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user street name
          * @param n
          */
         public void setStreetName(String n){
@@ -263,7 +274,7 @@ public class ContactTest {
         	
         	if (nameIsValid(n)){
                 while((nameIsValid( n) == true)){
-        		System.out.println( "Invalid characters in last name" );
+        		System.out.println( "Invalid characters" );
                 System.out.println( "Correctly:");
                 n = key.nextLine();
                 street1 = n;
@@ -274,7 +285,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user street name
          * @return street1
          */
         public String getStreetName(){
@@ -282,27 +293,27 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user state name
          * @param n
          */
         public void setStateAB(String n){
         	Scanner key = new Scanner(System.in);
         	nameIsValid(n);
         	
-        	if( !n.matches("^[a-zA-Z]{2}") ) { 	
-            	while(!n.matches("^[a-zA-Z]{2}") == false){
-            		System.out.println( "Invalid characters in last name" );
-            		System.out.println( "Correctly:");
-            		n = key.nextLine();
-            		state = n;
-            		}
+        	if (nameIsValid(n)){
+                while((nameIsValid( n) == true)){
+                	System.out.println( "Invalid characters" );
+                	System.out.println( "Correctly:");
+                	n = key.nextLine();
+                	state = n;
+                }
             } else {
             	state = n;
             }
         }
         
         /**
-         * 
+         * get user state name
          * @return state
          */
         public String getStateAB(){
@@ -310,15 +321,15 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user street number
          * @param n
          */
         public void setStreetNumber(String n){
         	Scanner key = new Scanner(System.in);
         	
-            if( !n.matches("^[0-9]{4}") ) { 	
-            	while(!n.matches("^[0-9]{4}") == false){
-            		System.out.println( "Invalid characters in last name" );
+            if( !n.matches("^[0-9]{0,4}")) { 	
+            	while(!n.matches("^[0-9]{0,4}") == true){
+            		System.out.println( "Invalid characters" );
                     System.out.println( "Correctly:");
                     n = key.nextLine();
                     street2 = n;
@@ -329,7 +340,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user street number
          * @return street2
          */
         public String getStreetNumber(){
@@ -337,15 +348,16 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user phone number
          * @param n
          */
         public void setPhoneNumber(String n) {
         	Scanner key = new Scanner(System.in);
+        	phoneIsValid(n);
         	
-        	if( !n.matches("^[0-9]{13}") == false) { 
-        		while(!n.matches("^[0-9 -] {10}") == false){
-            		System.out.println( "Invalid characters in last name" );
+        	if(phoneIsValid(n)){ 
+        		while(phoneIsValid(n) == true){
+            		System.out.println( "Invalid characters" );
                     System.out.println( "Correctly:");
                     n = key.nextLine();
                     phone = n;    
@@ -356,7 +368,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user phone number
          * @return phone
          */
         public String getPhoneNumber(){
@@ -364,15 +376,15 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * set user zip code
          * @param n
          */
         public void setZipCode(String n){
         	Scanner key = new Scanner(System.in);
         	
-        	if( !n.matches("^[0-9]{5}") == true ) { 	
-        		while(!n.matches("^[0-9]{5}") == false){
-        			System.out.println( "Invalid characters in last name" );
+        	if( !n.matches("^[0-9]{0,5}")) { 	
+        		while(!n.matches("^[0-9]{0,5}") == true){
+        			System.out.println( "Invalid characters" );
         			System.out.println( "Correctly:");
         			n = key.nextLine();
         			zip = n;
@@ -383,7 +395,7 @@ public class ContactTest {
         }
        
         /**
-         * 
+         * get user zip code
          * @return zip
          */
        public String getZipCode(){
@@ -391,17 +403,18 @@ public class ContactTest {
         }
         
        /**
-        * 
+        * set user email
         * @param n
         */
         public void setEmail(String n){
         	Scanner key = new Scanner(System.in);
+        	 emailIsValid(n);
         	
-        	if( !n.matches("^[a-zA-Z @ .]+$ ") ==  false ) { 	
-            	while ( !n.matches("^[a-zA-Z @ .]") == false){
-            		System.out.println( "Invalid characters in last name" );
-                    System.out.println( "Correctly:");
-                    n = key.nextLine();
+        	if (emailIsValid(n)){
+                while((emailIsValid(n) == true)){
+        		System.out.println( "Invalid characters" );
+                System.out.println( "Correctly:");
+                n = key.nextLine();
                     email = n;
             	}
         	} else {
@@ -410,7 +423,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * get user email
          * @return email
          */
         public String getEmail(){
@@ -418,7 +431,7 @@ public class ContactTest {
         }
         
         /**
-         * 
+         * Input validation for alphabetic strings
          * @param n
          * @return true/false
          */
@@ -428,12 +441,35 @@ public class ContactTest {
         	}else{
         		return false;
         	}
-        
-       
-        
         }
         
+       /**
+         * Input validation for phone number
+         * @param n
+         * @return true/false
+         */
+        public static  boolean phoneIsValid(String n){
+        	if(!n.matches("^[0-9]{0,13}")) {
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
+        
+        /**
+         * Input validation for email
+         * @param n
+         * @return true/false
+         */
+        public static  boolean emailIsValid(String n){
+        	if(!n.matches("^[0-9a-zA-Z @ .]+$")) {
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
        
+        
         /*
          * Name (first, last, middle)
          * Prefix
@@ -454,4 +490,3 @@ public class ContactTest {
     }
     
 }
-
